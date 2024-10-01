@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 public class Interpreter
 {
@@ -43,22 +44,28 @@ public class Interpreter
                 case TokenType.HLT:
                     return;
                 case TokenType.BRZ:
-                    if (_accumulator == 0) _instructionPointer = instruction.Address;
+                    if (_accumulator == 0)
+                    {
+                        _instructionPointer = instruction.Address;
+                        continue;
+                    }
                     break;
                 case TokenType.BRP:
-                    if (_accumulator >= 0) _instructionPointer = instruction.Address;
+                    if (_accumulator >= 0)
+                    {
+                        _instructionPointer = instruction.Address;
+                        continue;
+                    }
                     break;
                 case TokenType.BRA:
                     _instructionPointer = instruction.Address;
-                    break;
+                    continue;
                 case TokenType.VAR:
-                    _memory[instruction.Address] = instruction.Value; // Set memory address to the value
+                    _memory[instruction.Address] = instruction.Value;
                     break;
             }
 
-            if (instruction.Type != TokenType.BRA && instruction.Type != TokenType.BRZ && instruction.Type != TokenType.BRP)
-                _instructionPointer++;
+            _instructionPointer++;
         }
     }
-
 }

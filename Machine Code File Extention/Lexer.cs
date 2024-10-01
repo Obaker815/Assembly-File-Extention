@@ -52,6 +52,23 @@ public class Lexer
                 continue;
             }
 
+            if (_currentChar == '-')
+            {
+                var value = "-";
+                Advance();  // Move past the '-'
+
+                if (!char.IsDigit(_currentChar))
+                    throw new Exception("Expected digit after minus sign.");
+
+                while (char.IsDigit(_currentChar))
+                {
+                    value += _currentChar;
+                    Advance();
+                }
+                tokens.Add(new Token(TokenType.NUM, value));
+                continue;
+            }
+
             if (char.IsDigit(_currentChar))
             {
                 var value = string.Empty;
@@ -87,6 +104,6 @@ public class Lexer
         }
 
         tokens.Add(new Token(TokenType.EOF, ""));
-        return tokens; // Ensure this is reached
+        return tokens;
     }
 }
