@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// define the TokenTypes
 public enum TokenType
 {
     LDA, STA, ADD, SUB, INP, OUT, HLT, BRZ, BRP, BRA, VAR, NUM, ID, EOF
 }
 
+// create token class
 public class Token
 {
     public TokenType Type { get; }
@@ -18,6 +20,7 @@ public class Token
     }
 }
 
+// create Lexer class
 public class Lexer
 {
     private readonly string _input;
@@ -31,6 +34,7 @@ public class Lexer
         _currentChar = _input.Length > 0 ? _input[_position] : '\0';
     }
 
+    // goto next character in an input/ VAR
     private void Advance()
     {
         _position++;
@@ -52,10 +56,11 @@ public class Lexer
                 continue;
             }
 
+            // Advances if character is "-" then throws an exception if there isnt a digit
             if (_currentChar == '-')
             {
                 var value = "-";
-                Advance();  // Move past the '-'
+                Advance();
 
                 if (!char.IsDigit(_currentChar))
                     throw new Exception("Expected digit after minus sign.");
@@ -69,6 +74,7 @@ public class Lexer
                 continue;
             }
 
+            // check if character is a digit, then makes number
             if (char.IsDigit(_currentChar))
             {
                 var value = string.Empty;
@@ -81,6 +87,7 @@ public class Lexer
                 continue;
             }
 
+            // checks if character is letter, then makes string
             if (char.IsLetter(_currentChar))
             {
                 var value = string.Empty;

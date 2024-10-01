@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// instruction class
 public class Instruction
 {
     public TokenType Type { get; }
@@ -15,7 +16,7 @@ public class Instruction
     }
 }
 
-
+// parser class (shitty)
 public class Parser
 {
     private readonly List<Token> _tokens;
