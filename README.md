@@ -1,13 +1,13 @@
 # Machine Code File Extention
 
-##Uses the file extention .sack (i just coded it that way)
+## Uses the file extention .sack (i just coded it that way)
 
-##This program uses lists and Arrays to store data and instructions, don't worry about actual memory addresses
+## This program uses lists and Arrays to store data and instructions, don't worry about actual memory addresses
 
-##You will need to compile it yourself and make it the default for the .sack extention
+## You will need to compile it yourself and make it the default for the .sack extention
 
 
-###Commands :
+### Commands :
 
 LDA ADDRESS       - sets the ACC value to the data at the ADDRESS given
 
