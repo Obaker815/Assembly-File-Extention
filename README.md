@@ -4,6 +4,8 @@ Uses the file extention .sack (i just coded it that way)
 
 This program uses lists and Arrays to store data and instructions, don't worry about actual memory addresses
 
+You will need to compile it yourself and make it the default for the .sack extention
+
 
 Commands :
 
