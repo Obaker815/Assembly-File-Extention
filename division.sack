@@ -30,3 +30,5 @@ STA 0
 
 LDA 0
 OUT 
+
+HLT
