@@ -1,0 +1,32 @@
+VAR 0 0
+VAR 1 1
+VAR 2 0
+
+INP
+STA 3
+INP
+STA 4
+
+LDA 0
+ADD 1
+STA 0
+
+LDA 3
+SUB 4
+STA 3
+
+BRZ 21
+
+LDA 2
+SUB 3
+
+BRP 18
+
+BRA 7
+
+LDA 0
+SUB 1
+STA 0
+
+LDA 0
+OUT 
